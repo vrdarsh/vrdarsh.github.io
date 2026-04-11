@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bet assignment 9</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>bet assignment 9</h1>
+
+    <div class="question-block">
+        <h2>problem 1</h2>
+        <div class="problem-text">
+            a steel rod of length 50 cm and cross-sectional area 2 cm² is bent in a circular shape such that an air gap of length 1.5 mm is maintained between the two ends of it. a coil of 700 turns is wound over the rod. neglect leakage and fringing effects, and assume the relative permeability is x for the rod.
+        </div>
+
+        <div class="sub-question">
+            <h3>q1: required current</h3>
+            <p>calculate the current required in amperes to establish a magnetic field of 0.5 mwb in the air gap.</p>
+            <div class="input-group">
+                <label>permeability (x) for q1:</label>
+                <input type="number" id="p1q1-x" placeholder="e.g., 2000">
+            </div>
+            <button onclick="calcP1Q1()">calculate q1</button>
+            <div class="result" id="p1q1-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q2: magnetic field strength of the rod</h3>
+            <p>calculate the magnetic field strength of the rod in at/m if a magnetic field of 0.5 mwb is created.</p>
+            <div class="input-group">
+                <label>permeability (x) for q2:</label>
+                <input type="number" id="p1q2-x" placeholder="e.g., 2500">
+            </div>
+            <button onclick="calcP1Q2()">calculate q2</button>
+            <div class="result" id="p1q2-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q3: magnetic field strength of the air gap</h3>
+            <p>calculate the magnetic field strength of the air gap in at/m.</p>
+            <div class="result" id="p1q3-result"></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>problem 2</h2>
+        <div class="problem-text">
+            a circular magnetic circuit is made of two parts with the same material. part a has an area of cross-section of 4 cm² and part b has a length of 10 cm. a coil carrying a current of 0.5a is wound uniformly on the ring. the flux density in the thicker section is 0.8 tesla. the b-h characteristics are provided.
+        </div>
+
+        <div class="sub-question">
+            <h3>q4: find the net mmf</h3>
+            <div class="input-group">
+                <label>length of part a (cm) for q4:</label>
+                <input type="number" id="p2q4-len" placeholder="e.g., 29">
+            </div>
+            <div class="input-group">
+                <label>area of part b (cm²) for q4:</label>
+                <input type="number" id="p2q4-area" placeholder="e.g., 5">
+            </div>
+            <button onclick="calcP2Q4()">calculate q4</button>
+            <div class="result" id="p2q4-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q5: number of turns</h3>
+            <div class="input-group">
+                <label>length of part a (cm) for q5:</label>
+                <input type="number" id="p2q5-len" placeholder="e.g., 29">
+            </div>
+            <div class="input-group">
+                <label>area of part b (cm²) for q5:</label>
+                <input type="number" id="p2q5-area" placeholder="e.g., 5">
+            </div>
+            <button onclick="calcP2Q5()">calculate q5</button>
+            <div class="result" id="p2q5-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q6: total reluctance</h3>
+            <div class="input-group">
+                <label>length of part a (cm) for q6:</label>
+                <input type="number" id="p2q6-len" placeholder="e.g., 29">
+            </div>
+            <div class="input-group">
+                <label>area of part b (cm²) for q6:</label>
+                <input type="number" id="p2q6-area" placeholder="e.g., 5">
+            </div>
+            <button onclick="calcP2Q6()">calculate q6</button>
+            <div class="result" id="p2q6-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q7: relative permeability of part a</h3>
+            <div class="input-group">
+                <label>length of part a (cm) for q7:</label>
+                <input type="number" id="p2q7-len" placeholder="e.g., 29">
+            </div>
+            <div class="input-group">
+                <label>area of part b (cm²) for q7:</label>
+                <input type="number" id="p2q7-area" placeholder="e.g., 5">
+            </div>
+            <button onclick="calcP2Q7()">calculate q7</button>
+            <div class="result" id="p2q7-result"></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>problem 3: parallel magnetic circuit</h2>
+        <div class="problem-text">
+            a magnetic circuit has a coil wound on part a. the flux travels through part a and then splits into part b and part c.
+        </div>
+
+        <div class="sub-question">
+            <h3>q1: find flux in part c</h3>
+            <p>given flux in b, and reluctances a, b, and c.</p>
+            <div class="input-group">
+                <label>flux in part b (mwb):</label>
+                <input type="number" id="p3q1-flux-b" placeholder="e.g., 5.0">
+            </div>
+            <div class="input-group">
+                <label>reluctance of part b (at/wb):</label>
+                <input type="number" id="p3q1-rel-b" placeholder="e.g., 63000">
+            </div>
+            <div class="input-group">
+                <label>reluctance of part c (at/wb):</label>
+                <input type="number" id="p3q1-rel-c" placeholder="e.g., 68000">
+            </div>
+            <button onclick="calcP3Q1()">calculate q1</button>
+            <div class="result" id="p3q1-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q2: find reluctance of part a</h3>
+            <p>given flux in b, reluctances b and c, turns, and current.</p>
+            <div class="input-group">
+                <label>flux in part b (mwb):</label>
+                <input type="number" id="p3q2-flux-b" placeholder="e.g., 2.0">
+            </div>
+            <div class="input-group">
+                <label>reluctance b (at/wb):</label>
+                <input type="number" id="p3q2-rel-b" placeholder="e.g., 60000">
+            </div>
+            <div class="input-group">
+                <label>reluctance c (at/wb):</label>
+                <input type="number" id="p3q2-rel-c" placeholder="e.g., 80000">
+            </div>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p3q2-turns" placeholder="e.g., 1400">
+            </div>
+            <div class="input-group">
+                <label>current (amperes):</label>
+                <input type="number" id="p3q2-current" placeholder="e.g., 1.7">
+            </div>
+            <button onclick="calcP3Q2()">calculate q2</button>
+            <div class="result" id="p3q2-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q3: find current in ma</h3>
+            <p>given flux in c, reluctances a, b, and c, and turns.</p>
+            <div class="input-group">
+                <label>flux in part c (mwb):</label>
+                <input type="number" id="p3q3-flux-c" placeholder="e.g., 9.0">
+            </div>
+            <div class="input-group">
+                <label>reluctance a (at/wb):</label>
+                <input type="number" id="p3q3-rel-a" placeholder="e.g., 99000">
+            </div>
+            <div class="input-group">
+                <label>reluctance b (at/wb):</label>
+                <input type="number" id="p3q3-rel-b" placeholder="e.g., 75000">
+            </div>
+            <div class="input-group">
+                <label>reluctance c (at/wb):</label>
+                <input type="number" id="p3q3-rel-c" placeholder="e.g., 83000">
+            </div>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p3q3-turns" placeholder="e.g., 1100">
+            </div>
+            <button onclick="calcP3Q3()">calculate q3</button>
+            <div class="result" id="p3q3-result"></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>problem 4: circular magnetic ring</h2>
+        <div class="problem-text">
+            a magnetic core in the form of a circular ring has a relative permeability of 2400. 
+        </div>
+
+        <div class="sub-question">
+            <h3>q11: current in a solid ring</h3>
+            <p>calculate the current needed in a coil of n turns to create a specific flux if the ring has no air gap.</p>
+            <div class="input-group">
+                <label>mean length l (cm):</label>
+                <input type="number" id="p4q11-len" placeholder="e.g., 143">
+            </div>
+            <div class="input-group">
+                <label>area a (cm²):</label>
+                <input type="number" id="p4q11-area" placeholder="e.g., 4.0">
+            </div>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p4q11-turns" placeholder="e.g., 98">
+            </div>
+            <div class="input-group">
+                <label>flux (mwb):</label>
+                <input type="number" id="p4q11-flux" placeholder="e.g., 0.2">
+            </div>
+            <button onclick="calcP4Q11()">calculate q11</button>
+            <div class="result" id="p4q11-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q12: current in a ring with air gap</h3>
+            <p>calculate the current needed if an air gap is cut through the core perpendicular to the flux direction.</p>
+            <div class="input-group">
+                <label>total mean length l (cm):</label>
+                <input type="number" id="p4q12-len" placeholder="e.g., 171">
+            </div>
+            <div class="input-group">
+                <label>air gap length (cm):</label>
+                <input type="number" id="p4q12-gap" placeholder="e.g., 1.0">
+            </div>
+            <div class="input-group">
+                <label>area a (cm²):</label>
+                <input type="number" id="p4q12-area" placeholder="e.g., 5.0">
+            </div>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p4q12-turns" placeholder="e.g., 58">
+            </div>
+            <div class="input-group">
+                <label>flux (mwb):</label>
+                <input type="number" id="p4q12-flux" placeholder="e.g., 0.2">
+            </div>
+            <button onclick="calcP4Q12()">calculate q12</button>
+            <div class="result" id="p4q12-result"></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>problem 5: symmetrical cast steel frame</h2>
+        <div class="problem-text">
+            a coil is wound around the central limb of a symmetrical cast steel frame with a uniform cross-sectional area of 16 cm². the air gap length is 0.2 cm, and the relative permeability is 1200. outer width is 32 cm and outer height is 20 cm.
+        </div>
+
+        <div class="sub-question">
+            <h3>q13: flux density in left limb</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p5q13-turns" placeholder="e.g., 60">
+            </div>
+            <div class="input-group">
+                <label>flux in air gap (x) in mwb:</label>
+                <input type="number" id="p5q13-flux" placeholder="e.g., 3.0">
+            </div>
+            <button onclick="calcP5Q13()">calculate q13</button>
+            <div class="result" id="p5q13-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q14: mmf in right limb</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p5q14-turns" placeholder="e.g., 121">
+            </div>
+            <div class="input-group">
+                <label>flux in air gap (x) in mwb:</label>
+                <input type="number" id="p5q14-flux" placeholder="e.g., 1.4">
+            </div>
+            <button onclick="calcP5Q14()">calculate q14</button>
+            <div class="result" id="p5q14-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q15: total mmf</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p5q15-turns" placeholder="e.g., 131">
+            </div>
+            <div class="input-group">
+                <label>flux in air gap (x) in mwb:</label>
+                <input type="number" id="p5q15-flux" placeholder="e.g., 1.0">
+            </div>
+            <button onclick="calcP5Q15()">calculate q15</button>
+            <div class="result" id="p5q15-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q16: current through coil</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p5q16-turns" placeholder="e.g., 123">
+            </div>
+            <div class="input-group">
+                <label>flux in air gap (x) in mwb:</label>
+                <input type="number" id="p5q16-flux" placeholder="e.g., 4.4">
+            </div>
+            <button onclick="calcP5Q16()">calculate q16</button>
+            <div class="result" id="p5q16-result"></div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>problem 6</h2>
+        <div class="problem-text">
+            the shown magnetic circuit has a relative permeability of 1200. a coil is wound on limb bhgfe. each of the two air gaps is 0.1 cm long, and the frame has a square cross-sectional area of 16 cm². 
+        </div>
+
+        <div class="sub-question">
+            <h3>q17: calculate flux in limb bae</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p6q17-turns" placeholder="e.g., 122">
+            </div>
+            <div class="input-group">
+                <label>flux in bcde (x) in mwb:</label>
+                <input type="number" id="p6q17-flux" placeholder="e.g., 0.8">
+            </div>
+            <button onclick="calcP6Q17()">calculate q17</button>
+            <div class="result" id="p6q17-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q18: calculate flux in limb bhgfe</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p6q18-turns" placeholder="e.g., 76">
+            </div>
+            <div class="input-group">
+                <label>flux in bcde (x) in mwb:</label>
+                <input type="number" id="p6q18-flux" placeholder="e.g., 4.2">
+            </div>
+            <button onclick="calcP6Q18()">calculate q18</button>
+            <div class="result" id="p6q18-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q19: calculate total mmf</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p6q19-turns" placeholder="e.g., 56">
+            </div>
+            <div class="input-group">
+                <label>flux in bcde (x) in mwb:</label>
+                <input type="number" id="p6q19-flux" placeholder="e.g., 2.8">
+            </div>
+            <button onclick="calcP6Q19()">calculate q19</button>
+            <div class="result" id="p6q19-result"></div>
+        </div>
+
+        <div class="sub-question">
+            <h3>q20: calculate current through coil</h3>
+            <div class="input-group">
+                <label>coil turns (n):</label>
+                <input type="number" id="p6q20-turns" placeholder="e.g., 137">
+            </div>
+            <div class="input-group">
+                <label>flux in bcde (x) in mwb:</label>
+                <input type="number" id="p6q20-flux" placeholder="e.g., 1.2">
+            </div>
+            <button onclick="calcP6Q20()">calculate q20</button>
+            <div class="result" id="p6q20-result"></div>
+        </div>
+    </div>
+
+    <div class="pdf-section">
+        <h2>assignment document</h2>
+        <a href="assignment.pdf" target="_blank">view pdf</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
