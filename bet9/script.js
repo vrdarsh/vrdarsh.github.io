@@ -52,6 +52,7 @@ function calcP1Q3() {
     resultBox.innerHTML = "answer: h<sub>gap</sub> = " + chopped.toFixed(4) + " at/m";
 }
 
+
 function getHfromB(B) {
     const bValues = [0.0, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6];
     const hValues = [0, 200, 300, 420, 600, 900, 1600, 3000];
