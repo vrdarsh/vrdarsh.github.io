@@ -31,7 +31,7 @@ function calcP1Q2() {
 
     let H_steel = p1_B / (mu0 * mu_r);
     H_steel = Math.trunc(H_steel * 10000) / 10000;
-    resultBox.innerHTML = "answer: h<sub>rod</sub> = " + H_steel.toFixed(5) + " at/m";
+    resultBox.innerHTML = "answer: h<sub>rod</sub> = " + H_steel.toFixed(4) + " at/m";
 }
 
 // Automatically populate Q3 since it doesn't need an input button
