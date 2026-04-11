@@ -1,0 +1,95 @@
+body {
+    font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 50px;
+    /*border-bottom: 4px solid #000;*/
+    padding-bottom: 10px;
+}
+
+.question-block {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.sub-question {
+    margin-left: 20px;
+    padding-left: 15px;
+    border-left: 2px solid #000;
+    margin-bottom: 30px;
+}
+.problem-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    background-color: #f0f0f0;
+    padding: 15px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 250px;
+    font-weight: bold;
+}
+
+input {
+    padding: 8px;
+    font-size: 1rem;
+    border: 2px solid #000;
+    border-radius: 0;
+    font-family: inherit;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+.result {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.pdf-section {
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #000;
+    text-align: center;
+}
+
+.pdf-section a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: underline;
+}
