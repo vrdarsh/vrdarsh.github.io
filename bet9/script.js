@@ -34,11 +34,23 @@ function calcP1Q2() {
     resultBox.innerHTML = "answer: h<sub>rod</sub> = " + H_steel.toFixed(4) + " at/m";
 }
 
-// Automatically populate Q3 since it doesn't need an input button
-let p1_H_gap = p1_B / mu0;
-p1_H_gap = Math.trunc(p1_H_gap * 10000) / 10000;
-document.getElementById("p1q3-result").innerHTML = "answer: h<sub>gap</sub> = " + p1_H_gap.toFixed(4) + " at/m";
+function calcP1Q3() {
+    let flux_mwb = Number(document.getElementById("p1q3-flux").value);
+    let resultBox = document.getElementById("p1q3-result");
 
+    if (!flux_mwb || flux_mwb <= 0) {
+        return resultBox.innerHTML = "please enter a valid magnetic field.";
+    }
+
+    const area = 2 * Math.pow(10, -4);
+    
+    let flux = flux_mwb * Math.pow(10, -3);
+    let b_gap = flux / area;
+    let h_gap = b_gap / mu0;
+
+    let chopped = Math.trunc(h_gap * 10000) / 10000;
+    resultBox.innerHTML = "answer: h<sub>gap</sub> = " + chopped.toFixed(4) + " at/m";
+}
 
 function getHfromB(B) {
     const bValues = [0.0, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6];
