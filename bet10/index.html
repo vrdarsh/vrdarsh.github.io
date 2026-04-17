@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bet assignment 10</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div id="math-buffer" style="display: none;"></div>
+
+    <h1 style="font-size: 3rem; text-transform: lowercase; margin-bottom: 40px; margin-top: 20px;">bet assignment 10</h1>
+
+    <div class="question-block">
+        <h2>problem 1</h2>
+        
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="L.drawio.png" alt="coupled inductors diagram" style="max-width: 100%;">
+        </div>
+
+        <div class="sub-question">
+            <h3>question 1</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled inductors with self inductance 
+                l<sub>1</sub> = <input type="number" id="p1q1-l1" class="inline-input" placeholder="0.30"> h, 
+                l<sub>2</sub> = <input type="number" id="p1q1-l2" class="inline-input" placeholder="0.35"> h and 
+                l<sub>3</sub> = <input type="number" id="p1q1-l3" class="inline-input" placeholder="0.15"> h 
+                are connected in series as shown in the figure. find the equivalent inductance of the system if 
+                k<sub>12</sub> = <input type="number" id="p1q1-k12" class="inline-input" placeholder="0.3">, 
+                k<sub>23</sub> = <input type="number" id="p1q1-k23" class="inline-input" placeholder="0.3"> and 
+                k<sub>31</sub> = <input type="number" id="p1q1-k31" class="inline-input" placeholder="0.5">.
+            </div>
+            
+            <button id="calc-btn-q1" onclick="generateSolutionQ1()">generate solution</button>
+
+            <div id="error-msg-q1" class="error-msg"></div>
+            <div id="quick-answer-q1" class="quick-answer"></div>
+            <div id="solution-separator-q1" class="separator" onclick="toggleSolutionQ1()">detailed solution</div>
+
+            <div id="solution-container-q1" class="solution-container">
+                <div id="loading-spinner-q1" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q1"></span><span id="typing-cursor-q1" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 2</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled inductors with self inductance 
+                l<sub>1</sub> = <input type="number" id="p1q2-l1" class="inline-input" placeholder="0.25"> h, 
+                l<sub>2</sub> = <input type="number" id="p1q2-l2" class="inline-input" placeholder="0.25"> h and 
+                l<sub>3</sub> = <input type="number" id="p1q2-l3" class="inline-input" placeholder="0.15"> h 
+                are connected in series as shown in the figure. find the equivalent inductance of the system if the connection to l<sub>2</sub> is reversed. assume 
+                k<sub>12</sub> = <input type="number" id="p1q2-k12" class="inline-input" placeholder="0.2">, 
+                k<sub>23</sub> = <input type="number" id="p1q2-k23" class="inline-input" placeholder="0.2"> and 
+                k<sub>31</sub> = <input type="number" id="p1q2-k31" class="inline-input" placeholder="0.2">.
+            </div>
+            
+            <button id="calc-btn-q2" onclick="generateSolutionQ2()">generate solution</button>
+
+            <div id="error-msg-q2" class="error-msg"></div>
+            <div id="quick-answer-q2" class="quick-answer"></div>
+            <div id="solution-separator-q2" class="separator" onclick="toggleSolutionQ2()">detailed solution</div>
+
+            <div id="solution-container-q2" class="solution-container">
+                <div id="loading-spinner-q2" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q2"></span><span id="typing-cursor-q2" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 3</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled inductors with self inductance 
+                l<sub>1</sub> = <input type="number" id="p1q3-l1" class="inline-input" placeholder="0.25"> h, 
+                l<sub>2</sub> = <input type="number" id="p1q3-l2" class="inline-input" placeholder="0.20"> h and 
+                l<sub>3</sub> = <input type="number" id="p1q3-l3" class="inline-input" placeholder="0.20"> h 
+                are connected in series as shown in the figure. find the total emf induced (self+mutual) across l<sub>1</sub> in mv, if the current changes at the rate of 
+                <input type="number" id="p1q3-didt" class="inline-input" placeholder="4.90"> ma/s. assume 
+                k<sub>12</sub> = <input type="number" id="p1q3-k12" class="inline-input" placeholder="0.3">, 
+                k<sub>23</sub> = <input type="number" id="p1q3-k23" class="inline-input" placeholder="0.2"> and 
+                k<sub>31</sub> = <input type="number" id="p1q3-k31" class="inline-input" placeholder="0.4">.
+            </div>
+            
+            <button id="calc-btn-q3" onclick="generateSolutionQ3()">generate solution</button>
+
+            <div id="error-msg-q3" class="error-msg"></div>
+            <div id="quick-answer-q3" class="quick-answer"></div>
+            <div id="solution-separator-q3" class="separator" onclick="toggleSolutionQ3()">detailed solution</div>
+
+            <div id="solution-container-q3" class="solution-container">
+                <div id="loading-spinner-q3" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q3"></span><span id="typing-cursor-q3" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 4</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled inductors with self inductance 
+                l<sub>1</sub> = <input type="number" id="p1q4-l1" class="inline-input" placeholder="0.10"> h, 
+                l<sub>2</sub> = <input type="number" id="p1q4-l2" class="inline-input" placeholder="0.20"> h and 
+                l<sub>3</sub> = <input type="number" id="p1q4-l3" class="inline-input" placeholder="0.25"> h 
+                are connected in series as shown in the figure. find the total emf induced (self+mutual) across l<sub>1</sub> in mv, if the current changes at the rate of 
+                <input type="number" id="p1q4-didt" class="inline-input" placeholder="2.90"> ma/s and the connection of l<sub>2</sub> is reversed. assume 
+                k<sub>12</sub> = <input type="number" id="p1q4-k12" class="inline-input" placeholder="0.6">, 
+                k<sub>23</sub> = <input type="number" id="p1q4-k23" class="inline-input" placeholder="0.3"> and 
+                k<sub>31</sub> = <input type="number" id="p1q4-k31" class="inline-input" placeholder="0.2">.
+            </div>
+            
+            <button id="calc-btn-q4" onclick="generateSolutionQ4()">generate solution</button>
+
+            <div id="error-msg-q4" class="error-msg"></div>
+            <div id="quick-answer-q4" class="quick-answer"></div>
+            <div id="solution-separator-q4" class="separator" onclick="toggleSolutionQ4()">detailed solution</div>
+
+            <div id="solution-container-q4" class="solution-container">
+                <div id="loading-spinner-q4" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q4"></span><span id="typing-cursor-q4" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 5</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled inductors with self inductance 
+                l<sub>1</sub> = <input type="number" id="p1q5-l1" class="inline-input" placeholder="0.20"> h, 
+                l<sub>2</sub> = <input type="number" id="p1q5-l2" class="inline-input" placeholder="0.35"> h and 
+                l<sub>3</sub> = <input type="number" id="p1q5-l3" class="inline-input" placeholder="0.15"> h 
+                are connected in series as shown in the figure. find the total emf induced across the series combination of inductors in mv, if the current changes at the rate of 
+                <input type="number" id="p1q5-didt" class="inline-input" placeholder="2.10"> ma/s. assume 
+                k<sub>12</sub> = <input type="number" id="p1q5-k12" class="inline-input" placeholder="0.4">, 
+                k<sub>23</sub> = <input type="number" id="p1q5-k23" class="inline-input" placeholder="0.6"> and 
+                k<sub>31</sub> = <input type="number" id="p1q5-k31" class="inline-input" placeholder="0.2">.
+            </div>
+            
+            <button id="calc-btn-q5" onclick="generateSolutionQ5()">generate solution</button>
+
+            <div id="error-msg-q5" class="error-msg"></div>
+            <div id="quick-answer-q5" class="quick-answer"></div>
+            <div id="solution-separator-q5" class="separator" onclick="toggleSolutionQ5()">detailed solution</div>
+
+            <div id="solution-container-q5" class="solution-container">
+                <div id="loading-spinner-q5" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q5"></span><span id="typing-cursor-q5" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 6</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled inductors with self inductance 
+                l<sub>1</sub> = <input type="number" id="p1q6-l1" class="inline-input" placeholder="0.15"> h, 
+                l<sub>2</sub> = <input type="number" id="p1q6-l2" class="inline-input" placeholder="0.40"> h and 
+                l<sub>3</sub> = <input type="number" id="p1q6-l3" class="inline-input" placeholder="0.20"> h 
+                are connected in series as shown in the figure. find the total emf induced across the series combination of inductors in mv, if the current changes at the rate of 
+                <input type="number" id="p1q6-didt" class="inline-input" placeholder="3.75"> ma/s and connection of l<sub>3</sub> is reversed. assume 
+                k<sub>12</sub> = <input type="number" id="p1q6-k12" class="inline-input" placeholder="0.4">, 
+                k<sub>23</sub> = <input type="number" id="p1q6-k23" class="inline-input" placeholder="0.5"> and 
+                k<sub>31</sub> = <input type="number" id="p1q6-k31" class="inline-input" placeholder="0.6">.
+            </div>
+            
+            <button id="calc-btn-q6" onclick="generateSolutionQ6()">generate solution</button>
+
+            <div id="error-msg-q6" class="error-msg"></div>
+            <div id="quick-answer-q6" class="quick-answer"></div>
+            <div id="solution-separator-q6" class="separator" onclick="toggleSolutionQ6()">detailed solution</div>
+
+            <div id="solution-container-q6" class="solution-container">
+                <div id="loading-spinner-q6" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q6"></span><span id="typing-cursor-q6" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="question-block" style="margin-top: 80px;">
+        <h2>problem 2</h2>
+        
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="Lequ.drawio.png" alt="coupled inductors diagram dots" style="max-width: 100%;">
+        </div>
+
+        <div class="sub-question">
+            <h3>question 7</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled coils with 
+                l<sub>1</sub> = <input type="number" id="p2q7-l1" class="inline-input" placeholder="0.170"> h, 
+                l<sub>2</sub> = <input type="number" id="p2q7-l2" class="inline-input" placeholder="0.130"> h and 
+                l<sub>3</sub> = <input type="number" id="p2q7-l3" class="inline-input" placeholder="0.140"> h 
+                are connected in series. find the mutual inductance between l<sub>1</sub> and l<sub>2</sub> if equivalent inductance is 
+                <input type="number" id="p2q7-leq1" class="inline-input" placeholder="800"> mh for the coils connected as shown in figure and it is 
+                <input type="number" id="p2q7-leq2" class="inline-input" placeholder="950"> mh if the l<sub>3</sub> is reversed.
+            </div>
+            
+            <button id="calc-btn-q7" onclick="generateSolutionQ7()">generate solution</button>
+
+            <div id="error-msg-q7" class="error-msg"></div>
+            <div id="quick-answer-q7" class="quick-answer"></div>
+            <div id="solution-separator-q7" class="separator" onclick="toggleSolutionQ7()">detailed solution</div>
+
+            <div id="solution-container-q7" class="solution-container">
+                <div id="loading-spinner-q7" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q7"></span><span id="typing-cursor-q7" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 8</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled coils with 
+                l<sub>1</sub> = <input type="number" id="p2q8-l1" class="inline-input" placeholder="0.255"> h, 
+                l<sub>2</sub> = <input type="number" id="p2q8-l2" class="inline-input" placeholder="0.150"> h and 
+                l<sub>3</sub> = <input type="number" id="p2q8-l3" class="inline-input" placeholder="0.105"> h 
+                are connected in series. find the mutual inductance between l<sub>1</sub> and l<sub>3</sub> if equivalent inductance is 
+                <input type="number" id="p2q8-leq1" class="inline-input" placeholder="250"> mh for the coils connected as shown in figure and it is 
+                <input type="number" id="p2q8-leq2" class="inline-input" placeholder="950"> mh if the l<sub>3</sub> is reversed. assume m<sub>23</sub> = 
+                <input type="number" id="p2q8-m-ratio" class="inline-input" placeholder="0.5"> * m<sub>12</sub>.
+            </div>
+            
+            <button id="calc-btn-q8" onclick="generateSolutionQ8()">generate solution</button>
+
+            <div id="error-msg-q8" class="error-msg"></div>
+            <div id="quick-answer-q8" class="quick-answer"></div>
+            <div id="solution-separator-q8" class="separator" onclick="toggleSolutionQ8()">detailed solution</div>
+
+            <div id="solution-container-q8" class="solution-container">
+                <div id="loading-spinner-q8" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q8"></span><span id="typing-cursor-q8" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 9</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled coils with 
+                l<sub>1</sub> = <input type="number" id="p2q9-l1" class="inline-input" placeholder="0.270"> h, 
+                l<sub>2</sub> = <input type="number" id="p2q9-l2" class="inline-input" placeholder="0.185"> h and 
+                l<sub>3</sub> = <input type="number" id="p2q9-l3" class="inline-input" placeholder="0.185"> h 
+                are connected in series. find the coupling coefficient k<sub>13</sub> between l<sub>1</sub> and l<sub>3</sub> if equivalent inductance is 
+                <input type="number" id="p2q9-leq1" class="inline-input" placeholder="250"> mh for the coils connected as shown in figure and it is 
+                <input type="number" id="p2q9-leq2" class="inline-input" placeholder="950"> mh if the l<sub>3</sub> is reversed. assume m<sub>23</sub> = 
+                <input type="number" id="p2q9-m-ratio" class="inline-input" placeholder="0.5"> * m<sub>12</sub>.
+            </div>
+            
+            <button id="calc-btn-q9" onclick="generateSolutionQ9()">generate solution</button>
+
+            <div id="error-msg-q9" class="error-msg"></div>
+            <div id="quick-answer-q9" class="quick-answer"></div>
+            <div id="solution-separator-q9" class="separator" onclick="toggleSolutionQ9()">detailed solution</div>
+
+            <div id="solution-container-q9" class="solution-container">
+                <div id="loading-spinner-q9" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q9"></span><span id="typing-cursor-q9" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 10</h3>
+            
+            <div class="problem-text">
+                three magnetically coupled coils with 
+                l<sub>1</sub> = <input type="number" id="p2q10-l1" class="inline-input" placeholder="0.110"> h, 
+                l<sub>2</sub> = <input type="number" id="p2q10-l2" class="inline-input" placeholder="0.195"> h and 
+                l<sub>3</sub> = <input type="number" id="p2q10-l3" class="inline-input" placeholder="0.180"> h 
+                are connected in series. find the coupling coefficient k<sub>12</sub> between l<sub>1</sub> and l<sub>2</sub> if equivalent inductance is 
+                <input type="number" id="p2q10-leq1" class="inline-input" placeholder="250"> mh for the coils connected as shown in figure and it is 
+                <input type="number" id="p2q10-leq2" class="inline-input" placeholder="950"> mh if the l<sub>3</sub> is reversed.
+            </div>
+            
+            <button id="calc-btn-q10" onclick="generateSolutionQ10()">generate solution</button>
+
+            <div id="error-msg-q10" class="error-msg"></div>
+            <div id="quick-answer-q10" class="quick-answer"></div>
+            <div id="solution-separator-q10" class="separator" onclick="toggleSolutionQ10()">detailed solution</div>
+
+            <div id="solution-container-q10" class="solution-container">
+                <div id="loading-spinner-q10" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q10"></span><span id="typing-cursor-q10" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="question-block" style="margin-top: 80px;">
+        <h2>problem 3</h2>
+        
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="PastedImage_7234453266c44ac89b81311c46ad17a4_image.png" alt="coupled inductors u core diagram" style="max-width: 100%;">
+        </div>
+
+        <div class="problem-text">
+    three magnetically coupled inductive coils are wound on the same core and connected in series by joining the terminals a<sub>2</sub> to b<sub>1</sub> and b<sub>2</sub> to c<sub>1</sub> as shown in fig., the coefficients of coupling are given as k<sub>12</sub> = k<sub>13</sub> = k<sub>23</sub> = 0.8.
+</div>
+
+        <div class="sub-question">
+            <h3>question 11</h3>
+            
+            <div class="problem-text">
+                if the self-inductances of coils are 
+                l<sub>1</sub> = <input type="number" id="p3q11-l1" class="inline-input" placeholder="33"> h, 
+                l<sub>2</sub> = <input type="number" id="p3q11-l2" class="inline-input" placeholder="17"> h and 
+                l<sub>3</sub> = <input type="number" id="p3q11-l3" class="inline-input" placeholder="36"> h, 
+                find the equivalent inductance of the circuit across terminals a<sub>1</sub> and c<sub>2</sub> in h.
+            </div>
+            
+            <button id="calc-btn-q11" onclick="generateSolutionQ11()">generate solution</button>
+
+            <div id="error-msg-q11" class="error-msg"></div>
+            <div id="quick-answer-q11" class="quick-answer"></div>
+            <div id="solution-separator-q11" class="separator" onclick="toggleSolutionQ11()">detailed solution</div>
+
+            <div id="solution-container-q11" class="solution-container">
+                <div id="loading-spinner-q11" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q11"></span><span id="typing-cursor-q11" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 12</h3>
+            
+            <div class="problem-text">
+                find the value of the induced emf in the first coil if the current of 
+                <input type="number" id="p3q12-i" class="inline-input" placeholder="1"> a reverses in 
+                <input type="number" id="p3q12-t" class="inline-input" placeholder="0.1"> sec, and the self-inductances are 
+                l<sub>1</sub> = <input type="number" id="p3q12-l1" class="inline-input" placeholder="45"> h, 
+                l<sub>2</sub> = <input type="number" id="p3q12-l2" class="inline-input" placeholder="10"> h and 
+                l<sub>3</sub> = <input type="number" id="p3q12-l3" class="inline-input" placeholder="31"> h.
+            </div>
+            
+            <button id="calc-btn-q12" onclick="generateSolutionQ12()">generate solution</button>
+
+            <div id="error-msg-q12" class="error-msg"></div>
+            <div id="quick-answer-q12" class="quick-answer"></div>
+            <div id="solution-separator-q12" class="separator" onclick="toggleSolutionQ12()">detailed solution</div>
+
+            <div id="solution-container-q12" class="solution-container">
+                <div id="loading-spinner-q12" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q12"></span><span id="typing-cursor-q12" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 13</h3>
+            
+            <div class="problem-text">
+                find the value of the induced emf in the third coil if the current of 
+                <input type="number" id="p3q13-i" class="inline-input" placeholder="1"> a reverses in 
+                <input type="number" id="p3q13-t" class="inline-input" placeholder="0.1"> sec, and the self-inductances are 
+                l<sub>1</sub> = <input type="number" id="p3q13-l1" class="inline-input" placeholder="46"> h, 
+                l<sub>2</sub> = <input type="number" id="p3q13-l2" class="inline-input" placeholder="12"> h and 
+                l<sub>3</sub> = <input type="number" id="p3q13-l3" class="inline-input" placeholder="37"> h.
+            </div>
+            
+            <button id="calc-btn-q13" onclick="generateSolutionQ13()">generate solution</button>
+
+            <div id="error-msg-q13" class="error-msg"></div>
+            <div id="quick-answer-q13" class="quick-answer"></div>
+            <div id="solution-separator-q13" class="separator" onclick="toggleSolutionQ13()">detailed solution</div>
+
+            <div id="solution-container-q13" class="solution-container">
+                <div id="loading-spinner-q13" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q13"></span><span id="typing-cursor-q13" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+        <div class="question-block" style="margin-top: 80px;">
+        <h2>problem 4</h2>
+        
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="PastedImage_95f432c5baec40c785db622d7bd4973a_image.png" alt="coupled inductors problem 4 diagram" style="max-width: 100%;">
+        </div>
+
+        <div class="problem-text">
+            three magnetically coupled inductive coils having the following data are connected in series as shown in the figure. and the coefficient of coupling are 
+            k<sub>12</sub> = 0.9, 
+            k<sub>23</sub> = 0.9 and 
+            k<sub>31</sub> = 0.9.
+        </div>
+
+        <div class="sub-question">
+            <h3>question 14</h3>
+            
+            <div class="problem-text">
+                find the equivalent inductance of the circuit if the self-inductances are 
+                l<sub>1</sub> = <input type="number" id="p4q14-l1" class="inline-input" placeholder="16"> h, 
+                l<sub>2</sub> = <input type="number" id="p4q14-l2" class="inline-input" placeholder="49"> h and 
+                l<sub>3</sub> = <input type="number" id="p4q14-l3" class="inline-input" placeholder="50"> h.
+            </div>
+            
+            <button id="calc-btn-q14" onclick="generateSolutionQ14()">generate solution</button>
+
+            <div id="error-msg-q14" class="error-msg"></div>
+            <div id="quick-answer-q14" class="quick-answer"></div>
+            <div id="solution-separator-q14" class="separator" onclick="toggleSolutionQ14()">detailed solution</div>
+
+            <div id="solution-container-q14" class="solution-container">
+                <div id="loading-spinner-q14" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q14"></span><span id="typing-cursor-q14" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 15</h3>
+            
+            <div class="problem-text">
+                find the value of the induced emf in the second coil if the current decreases at a rate of 
+                <input type="number" id="p4q15-rate" class="inline-input" placeholder="500"> a/s and the self-inductances are 
+                l<sub>1</sub> = <input type="number" id="p4q15-l1" class="inline-input" placeholder="20"> h, 
+                l<sub>2</sub> = <input type="number" id="p4q15-l2" class="inline-input" placeholder="44"> h and 
+                l<sub>3</sub> = <input type="number" id="p4q15-l3" class="inline-input" placeholder="34"> h.
+            </div>
+            
+            <button id="calc-btn-q15" onclick="generateSolutionQ15()">generate solution</button>
+
+            <div id="error-msg-q15" class="error-msg"></div>
+            <div id="quick-answer-q15" class="quick-answer"></div>
+            <div id="solution-separator-q15" class="separator" onclick="toggleSolutionQ15()">detailed solution</div>
+
+            <div id="solution-container-q15" class="solution-container">
+                <div id="loading-spinner-q15" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q15"></span><span id="typing-cursor-q15" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 16</h3>
+            
+            <div class="problem-text">
+                find the value of the induced emf in the third coil if the current decreases at a rate of 
+                <input type="number" id="p4q16-rate" class="inline-input" placeholder="500"> a/s and the self-inductances are 
+                l<sub>1</sub> = <input type="number" id="p4q16-l1" class="inline-input" placeholder="10"> h, 
+                l<sub>2</sub> = <input type="number" id="p4q16-l2" class="inline-input" placeholder="38"> h and 
+                l<sub>3</sub> = <input type="number" id="p4q16-l3" class="inline-input" placeholder="39"> h.
+            </div>
+            
+            <button id="calc-btn-q16" onclick="generateSolutionQ16()">generate solution</button>
+
+            <div id="error-msg-q16" class="error-msg"></div>
+            <div id="quick-answer-q16" class="quick-answer"></div>
+            <div id="solution-separator-q16" class="separator" onclick="toggleSolutionQ16()">detailed solution</div>
+
+            <div id="solution-container-q16" class="solution-container">
+                <div id="loading-spinner-q16" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q16"></span><span id="typing-cursor-q16" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+        <div class="question-block" style="margin-top: 80px;">
+        <h2>problem 5</h2>
+
+        <div class="problem-text">
+            two identical coils, a and b, each having equal self-inductance, are positioned in parallel planes, and each coil contains n = 100 turns.
+        </div>
+
+        <div class="sub-question">
+            <h3>question 17</h3>
+            
+            <div class="problem-text">
+                if the current changes at a rate of x = <input type="number" id="p5q17-x" class="inline-input" placeholder="1020"> a/s in coil a induces an emf of e = <input type="number" id="p5q17-e" class="inline-input" placeholder="1"> v in coil b, each coil has a self-inductance of l = <input type="number" id="p5q17-l" class="inline-input" placeholder="0.022"> h. calculate the mutual inductance of the arrangement in mh.
+            </div>
+            
+            <button id="calc-btn-q17" onclick="generateSolutionQ17()">generate solution</button>
+
+            <div id="error-msg-q17" class="error-msg"></div>
+            <div id="quick-answer-q17" class="quick-answer"></div>
+            <div id="solution-separator-q17" class="separator" onclick="toggleSolutionQ17()">detailed solution</div>
+
+            <div id="solution-container-q17" class="solution-container">
+                <div id="loading-spinner-q17" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q17"></span><span id="typing-cursor-q17" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 18</h3>
+            
+            <div class="problem-text">
+                if the current changes at a rate of x = <input type="number" id="p5q18-x" class="inline-input" placeholder="21"> a/s in coil a induces an emf of e = <input type="number" id="p5q18-e" class="inline-input" placeholder="30"> v in coil b, each coil has a self-inductance of l = <input type="number" id="p5q18-l" class="inline-input" placeholder="1.8"> h. calculate the coupling coefficient of the arrangement.
+            </div>
+            
+            <button id="calc-btn-q18" onclick="generateSolutionQ18()">generate solution</button>
+
+            <div id="error-msg-q18" class="error-msg"></div>
+            <div id="quick-answer-q18" class="quick-answer"></div>
+            <div id="solution-separator-q18" class="separator" onclick="toggleSolutionQ18()">detailed solution</div>
+
+            <div id="solution-container-q18" class="solution-container">
+                <div id="loading-spinner-q18" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q18"></span><span id="typing-cursor-q18" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 19</h3>
+            
+            <div class="problem-text">
+                if the current changes at a rate of x = <input type="number" id="p5q19-x" class="inline-input" placeholder="1420"> a/s in coil a induces an emf of e = <input type="number" id="p5q19-e" class="inline-input" placeholder="2"> v in coil b, each coil has a self-inductance of l = <input type="number" id="p5q19-l" class="inline-input" placeholder="19"> h. calculate the flux produced in coil a in wb/a.
+            </div>
+            
+            <button id="calc-btn-q19" onclick="generateSolutionQ19()">generate solution</button>
+
+            <div id="error-msg-q19" class="error-msg"></div>
+            <div id="quick-answer-q19" class="quick-answer"></div>
+            <div id="solution-separator-q19" class="separator" onclick="toggleSolutionQ19()">detailed solution</div>
+
+            <div id="solution-container-q19" class="solution-container">
+                <div id="loading-spinner-q19" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q19"></span><span id="typing-cursor-q19" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <h3>question 20</h3>
+            
+            <div class="problem-text">
+                if the current changes at a rate of x = <input type="number" id="p5q20-x" class="inline-input" placeholder="8"> a/s in coil a induces an emf of e = <input type="number" id="p5q20-e" class="inline-input" placeholder="14"> v in coil b, each coil has a self-inductance of l = <input type="number" id="p5q20-l" class="inline-input" placeholder="27"> h. calculate the percentage of the flux that links the turns of b.
+            </div>
+            
+            <button id="calc-btn-q20" onclick="generateSolutionQ20()">generate solution</button>
+
+            <div id="error-msg-q20" class="error-msg"></div>
+            <div id="quick-answer-q20" class="quick-answer"></div>
+            <div id="solution-separator-q20" class="separator" onclick="toggleSolutionQ20()">detailed solution</div>
+
+            <div id="solution-container-q20" class="solution-container">
+                <div id="loading-spinner-q20" class="spinner"></div> 
+                <div class="typing-area">
+                    <span id="solution-content-q20"></span><span id="typing-cursor-q20" class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
