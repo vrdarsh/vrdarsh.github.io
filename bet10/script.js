@@ -38,17 +38,18 @@ async function generateSolutionQ1() {
     let m12 = k12 * Math.sqrt(l1 * l2);
     let m23 = k23 * Math.sqrt(l2 * l3);
     let m31 = k31 * Math.sqrt(l3 * l1);
-    let leq = l1 + l2 + l3 - (2 * m12) + (2 * m23) - (2 * m31);
+    
+    let leq = l1 + l2 + l3 + (2 * m12) + (2 * m23) + (2 * m31);
 
     quickAnswer.innerHTML = `answer: l<sub>eq</sub> = ${truncate4(leq)} h`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ1 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 -<br>` + `coil 2 and 3 +<br>` + `coil 1 and 3 -<br><br>` +
+        `coil 1 and 2 +<br>` + `coil 2 and 3 +<br>` + `coil 1 and 3 +<br><br>` +
         `%%\\( m_{12} = k_{12} \\sqrt{l_1 l_2} = ${k12} \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{23} = k_{23} \\sqrt{l_2 l_3} = ${k23} \\sqrt{${truncate4(l2)} \\times ${truncate4(l3)}} = ${(truncate4(m23))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = k_{31} \\sqrt{l_3 l_1} = ${k31} \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( l_{eq} = l_1 + l_2 + l_3 - 2m_{12} + 2m_{23} - 2m_{31} \\)%%<br>` +
-        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} - 2(${truncate4(m12)}) + 2(${truncate4(m23)}) - 2(${truncate4(m31)}) \\)%%<br>` +
+        `%%\\( l_{eq} = l_1 + l_2 + l_3 + 2m_{12} + 2m_{23} + 2m_{31} \\)%%<br>` +
+        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} + 2(${truncate4(m12)}) + 2(${truncate4(m23)}) + 2(${truncate4(m31)}) \\)%%<br>` +
         `%%\\( l_{eq} = ${(truncate4(leq))} \\text{ h} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
@@ -81,17 +82,18 @@ async function generateSolutionQ2() {
     btn.disabled = true; contentDiv.innerHTML = "";
     
     let m12 = k12 * Math.sqrt(l1 * l2); let m23 = k23 * Math.sqrt(l2 * l3); let m31 = k31 * Math.sqrt(l3 * l1);
-    let leq = l1 + l2 + l3 + (2 * m12) - (2 * m23) - (2 * m31);
+    
+    let leq = l1 + l2 + l3 - (2 * m12) - (2 * m23) + (2 * m31);
 
     quickAnswer.innerHTML = `answer: l<sub>eq</sub> = ${truncate4(leq)} h`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ2 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 +<br>` + `coil 2 and 3 -<br>` + `coil 1 and 3 -<br><br>` +
+        `coil 1 and 2 -<br>` + `coil 2 and 3 -<br>` + `coil 1 and 3 +<br><br>` +
         `%%\\( m_{12} = k_{12} \\sqrt{l_1 l_2} = ${k12} \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{23} = k_{23} \\sqrt{l_2 l_3} = ${k23} \\sqrt{${truncate4(l2)} \\times ${truncate4(l3)}} = ${(truncate4(m23))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = k_{31} \\sqrt{l_3 l_1} = ${k31} \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( l_{eq} = l_1 + l_2 + l_3 + 2m_{12} - 2m_{23} - 2m_{31} \\)%%<br>` +
-        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} + 2(${truncate4(m12)}) - 2(${truncate4(m23)}) - 2(${truncate4(m31)}) \\)%%<br>` +
+        `%%\\( l_{eq} = l_1 + l_2 + l_3 - 2m_{12} - 2m_{23} + 2m_{31} \\)%%<br>` +
+        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} - 2(${truncate4(m12)}) - 2(${truncate4(m23)}) + 2(${truncate4(m31)}) \\)%%<br>` +
         `%%\\( l_{eq} = ${(truncate4(leq))} \\text{ h} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
@@ -123,17 +125,18 @@ async function generateSolutionQ3() {
 
     btn.disabled = true; contentDiv.innerHTML = "";
     let m12 = k12 * Math.sqrt(l1 * l2); let m31 = k31 * Math.sqrt(l3 * l1);
-    let e1 = (l1 - m12 - m31) * didt;
+    
+    let e1 = (l1 + m12 + m31) * didt;
 
     quickAnswer.innerHTML = `answer: e<sub>1</sub> = ${truncate4(e1)} mv`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ3 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 -<br>` + `coil 1 and 3 -<br><br>` +
+        `coil 1 and 2 +<br>` + `coil 1 and 3 +<br><br>` +
         `%%\\( m_{12} = k_{12} \\sqrt{l_1 l_2} = ${k12} \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = k_{31} \\sqrt{l_3 l_1} = ${k31} \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( e_1 = l_1 \\frac{di}{dt} - m_{12} \\frac{di}{dt} - m_{31} \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_1 = (l_1 - m_{12} - m_{31}) \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_1 = (${truncate4(l1)} - ${truncate4(m12)} - ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
+        `%%\\( e_1 = l_1 \\frac{di}{dt} + m_{12} \\frac{di}{dt} + m_{31} \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_1 = (l_1 + m_{12} + m_{31}) \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_1 = (${truncate4(l1)} + ${truncate4(m12)} + ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
         `%%\\( e_1 = ${(truncate4(e1))} \\text{ mv} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
@@ -166,17 +169,17 @@ async function generateSolutionQ4() {
     btn.disabled = true; contentDiv.innerHTML = "";
     let m12 = k12 * Math.sqrt(l1 * l2); let m31 = k31 * Math.sqrt(l3 * l1);
     
-    let e1 = (l1 + m12 - m31) * didt;
+    let e1 = (l1 - m12 + m31) * didt;
 
     quickAnswer.innerHTML = `answer: e<sub>1</sub> = ${truncate4(e1)} mv`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ4 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 +<br>` + `coil 1 and 3 -<br><br>` +
+        `coil 1 and 2 -<br>` + `coil 1 and 3 +<br><br>` +
         `%%\\( m_{12} = k_{12} \\sqrt{l_1 l_2} = ${k12} \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = k_{31} \\sqrt{l_3 l_1} = ${k31} \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( e_1 = l_1 \\frac{di}{dt} + m_{12} \\frac{di}{dt} - m_{31} \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_1 = (l_1 + m_{12} - m_{31}) \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_1 = (${truncate4(l1)} + ${truncate4(m12)} - ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
+        `%%\\( e_1 = l_1 \\frac{di}{dt} - m_{12} \\frac{di}{dt} + m_{31} \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_1 = (l_1 - m_{12} + m_{31}) \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_1 = (${truncate4(l1)} - ${truncate4(m12)} + ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
         `%%\\( e_1 = ${(truncate4(e1))} \\text{ mv} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
@@ -209,18 +212,18 @@ async function generateSolutionQ5() {
     btn.disabled = true; contentDiv.innerHTML = "";
     let m12 = k12 * Math.sqrt(l1 * l2); let m23 = k23 * Math.sqrt(l2 * l3); let m31 = k31 * Math.sqrt(l3 * l1);
     
-    let leq = l1 + l2 + l3 - (2 * m12) + (2 * m23) - (2 * m31);
+    let leq = l1 + l2 + l3 + (2 * m12) + (2 * m23) + (2 * m31);
     let etotal = leq * didt;
 
     quickAnswer.innerHTML = `answer: e<sub>total</sub> = ${truncate4(etotal)} mv`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ5 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 -<br>` + `coil 2 and 3 +<br>` + `coil 1 and 3 -<br><br>` +
+        `coil 1 and 2 +<br>` + `coil 2 and 3 +<br>` + `coil 1 and 3 +<br><br>` +
         `%%\\( m_{12} = k_{12} \\sqrt{l_1 l_2} = ${k12} \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{23} = k_{23} \\sqrt{l_2 l_3} = ${k23} \\sqrt{${truncate4(l2)} \\times ${truncate4(l3)}} = ${(truncate4(m23))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = k_{31} \\sqrt{l_3 l_1} = ${k31} \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( l_{eq} = l_1 + l_2 + l_3 - 2m_{12} + 2m_{23} - 2m_{31} \\)%%<br>` +
-        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} - 2(${truncate4(m12)}) + 2(${truncate4(m23)}) - 2(${truncate4(m31)}) = ${(truncate4(leq))} \\text{ h} \\)%%<br><br>` +
+        `%%\\( l_{eq} = l_1 + l_2 + l_3 + 2m_{12} + 2m_{23} + 2m_{31} \\)%%<br>` +
+        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} + 2(${truncate4(m12)}) + 2(${truncate4(m23)}) + 2(${truncate4(m31)}) = ${(truncate4(leq))} \\text{ h} \\)%%<br><br>` +
         `%%\\( e_{total} = l_{eq} \\frac{di}{dt} \\)%%<br>` +
         `%%\\( e_{total} = ${(truncate4(leq))} \\times ${truncate4(didt)} \\)%%<br>` +
         `%%\\( e_{total} = ${(truncate4(etotal))} \\text{ mv} \\)%%`;
@@ -255,24 +258,25 @@ async function generateSolutionQ6() {
     btn.disabled = true; contentDiv.innerHTML = "";
     let m12 = k12 * Math.sqrt(l1 * l2); let m23 = k23 * Math.sqrt(l2 * l3); let m31 = k31 * Math.sqrt(l3 * l1);
     
-    let leq = l1 + l2 + l3 - (2 * m12) - (2 * m23) + (2 * m31);
+    let leq = l1 + l2 + l3 + (2 * m12) - (2 * m23) - (2 * m31);
     let etotal = leq * didt;
 
     quickAnswer.innerHTML = `answer: e<sub>total</sub> = ${truncate4(etotal)} mv`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ6 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 -<br>` + `coil 2 and 3 -<br>` + `coil 1 and 3 +<br><br>` +
+        `coil 1 and 2 +<br>` + `coil 2 and 3 -<br>` + `coil 1 and 3 -<br><br>` +
         `%%\\( m_{12} = k_{12} \\sqrt{l_1 l_2} = ${k12} \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{23} = k_{23} \\sqrt{l_2 l_3} = ${k23} \\sqrt{${truncate4(l2)} \\times ${truncate4(l3)}} = ${(truncate4(m23))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = k_{31} \\sqrt{l_3 l_1} = ${k31} \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( l_{eq} = l_1 + l_2 + l_3 - 2m_{12} - 2m_{23} + 2m_{31} \\)%%<br>` +
-        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} - 2(${truncate4(m12)}) - 2(${truncate4(m23)}) + 2(${truncate4(m31)}) = ${(truncate4(leq))} \\text{ h} \\)%%<br><br>` +
+        `%%\\( l_{eq} = l_1 + l_2 + l_3 + 2m_{12} - 2m_{23} - 2m_{31} \\)%%<br>` +
+        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} + 2(${truncate4(m12)}) - 2(${truncate4(m23)}) - 2(${truncate4(m31)}) = ${(truncate4(leq))} \\text{ h} \\)%%<br><br>` +
         `%%\\( e_{total} = l_{eq} \\frac{di}{dt} \\)%%<br>` +
         `%%\\( e_{total} = ${(truncate4(leq))} \\times ${truncate4(didt)} \\)%%<br>` +
         `%%\\( e_{total} = ${(truncate4(etotal))} \\text{ mv} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q7 LOGIC =================
 let isSolutionVisibleQ7 = false;
 function toggleSolutionQ7() {
     const container = document.getElementById("solution-container-q7");
@@ -308,6 +312,7 @@ async function generateSolutionQ7() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q8 LOGIC =================
 let isSolutionVisibleQ8 = false;
 function toggleSolutionQ8() {
     const container = document.getElementById("solution-container-q8");
@@ -348,6 +353,7 @@ async function generateSolutionQ8() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q9 LOGIC =================
 let isSolutionVisibleQ9 = false;
 function toggleSolutionQ9() {
     const container = document.getElementById("solution-container-q9");
@@ -391,6 +397,7 @@ async function generateSolutionQ9() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q10 LOGIC =================
 let isSolutionVisibleQ10 = false;
 function toggleSolutionQ10() {
     const container = document.getElementById("solution-container-q10");
@@ -430,6 +437,7 @@ async function generateSolutionQ10() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q11 LOGIC =================
 let isSolutionVisibleQ11 = false;
 function toggleSolutionQ11() {
     const container = document.getElementById("solution-container-q11");
@@ -459,21 +467,22 @@ async function generateSolutionQ11() {
     let m12 = k12 * Math.sqrt(l1 * l2);
     let m23 = k23 * Math.sqrt(l2 * l3);
     let m31 = k31 * Math.sqrt(l3 * l1);
-    let leq = l1 + l2 + l3 - (2 * m12) + (2 * m23) - (2 * m31);
+    let leq = l1 + l2 + l3 - (2 * m12) - (2 * m23) + (2 * m31);
 
     quickAnswer.innerHTML = `answer: l<sub>eq</sub> = ${truncate4(leq)} h`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ11 = true;
 
     let solutionHTML = 
-        `coil 1 and 2 - <br>` + `coil 2 and 3 + <br>` + `coil 1 and 3 - <br><br>` +
+        `coil 1 and 2 - <br>` + `coil 2 and 3 - <br>` + `coil 1 and 3 + <br><br>` +
         `%%\\( m_{12} = 0.8 \\sqrt{l_1 l_2} = 0.8 \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{23} = 0.8 \\sqrt{l_2 l_3} = 0.8 \\sqrt{${truncate4(l2)} \\times ${truncate4(l3)}} = ${(truncate4(m23))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = 0.8 \\sqrt{l_3 l_1} = 0.8 \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( l_{eq} = l_1 + l_2 + l_3 - 2m_{12} + 2m_{23} - 2m_{31} \\)%%<br>` +
-        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} - 2(${truncate4(m12)}) + 2(${truncate4(m23)}) - 2(${truncate4(m31)}) \\)%%<br>` +
+        `%%\\( l_{eq} = l_1 + l_2 + l_3 - 2m_{12} - 2m_{23} + 2m_{31} \\)%%<br>` +
+        `%%\\( l_{eq} = ${truncate4(l1)} + ${truncate4(l2)} + ${truncate4(l3)} - 2(${truncate4(m12)}) - 2(${truncate4(m23)}) + 2(${truncate4(m31)}) \\)%%<br>` +
         `%%\\( l_{eq} = ${(truncate4(leq))} \\text{ h} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q12 LOGIC =================
 let isSolutionVisibleQ12 = false;
 function toggleSolutionQ12() {
     const container = document.getElementById("solution-container-q12");
@@ -493,7 +502,7 @@ async function generateSolutionQ12() {
     }
 
     let l1 = Number(v_l1); let l2 = Number(v_l2); let l3 = Number(v_l3); let i_val = Number(v_i); let t_val = Number(v_t);
-    let k12 = 0.8; let k23 = 0.8; let k31 = 0.8;
+    let k12 = 0.8; let k23 = 0.8; let k31 = 0.8; 
 
     if (l1 <= 0 || l2 <= 0 || l3 <= 0 || t_val <= 0) {
         errorMsg.innerText = "please enter valid positive numbers."; errorMsg.style.display = "block"; return;
@@ -503,7 +512,7 @@ async function generateSolutionQ12() {
     let m12 = k12 * Math.sqrt(l1 * l2); let m31 = k31 * Math.sqrt(l3 * l1);
     
     let didt = (2 * i_val) / t_val;
-    let e1 = (l1 - m12 - m31) * didt;
+    let e1 = (l1 - m12 + m31) * didt;
 
     quickAnswer.innerHTML = `answer: e<sub>1</sub> = ${truncate4(e1)} v`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ12 = true;
 
@@ -511,13 +520,14 @@ async function generateSolutionQ12() {
         `%%\\( \\frac{di}{dt} = \\frac{2 \\times i}{t} = \\frac{2 \\times ${truncate4(i_val)}}{${truncate4(t_val)}} = ${truncate4(didt)} \\text{ a/s} \\)%%<br><br>` +
         `%%\\( m_{12} = 0.8 \\sqrt{l_1 l_2} = 0.8 \\sqrt{${truncate4(l1)} \\times ${truncate4(l2)}} = ${(truncate4(m12))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = 0.8 \\sqrt{l_3 l_1} = 0.8 \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( e_1 = l_1 \\frac{di}{dt} - m_{12} \\frac{di}{dt} - m_{31} \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_1 = (l_1 - m_{12} - m_{31}) \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_1 = (${truncate4(l1)} - ${truncate4(m12)} - ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
+        `%%\\( e_1 = l_1 \\frac{di}{dt} - m_{12} \\frac{di}{dt} + m_{31} \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_1 = (l_1 - m_{12} + m_{31}) \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_1 = (${truncate4(l1)} - ${truncate4(m12)} + ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
         `%%\\( e_1 = ${(truncate4(e1))} \\text{ v} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q13 LOGIC =================
 let isSolutionVisibleQ13 = false;
 function toggleSolutionQ13() {
     const container = document.getElementById("solution-container-q13");
@@ -537,7 +547,7 @@ async function generateSolutionQ13() {
     }
 
     let l1 = Number(v_l1); let l2 = Number(v_l2); let l3 = Number(v_l3); let i_val = Number(v_i); let t_val = Number(v_t);
-    let k12 = 0.8; let k23 = 0.8; let k31 = 0.8;
+    let k12 = 0.8; let k23 = 0.8; let k31 = 0.8; 
 
     if (l1 <= 0 || l2 <= 0 || l3 <= 0 || t_val <= 0) {
         errorMsg.innerText = "please enter valid positive numbers."; errorMsg.style.display = "block"; return;
@@ -547,7 +557,7 @@ async function generateSolutionQ13() {
     let m23 = k23 * Math.sqrt(l2 * l3); let m31 = k31 * Math.sqrt(l3 * l1);
     
     let didt = (2 * i_val) / t_val;
-    let e3 = (l3 + m23 - m31) * didt;
+    let e3 = (l3 - m23 + m31) * didt;
 
     quickAnswer.innerHTML = `answer: e<sub>3</sub> = ${truncate4(e3)} v`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ13 = true;
 
@@ -555,13 +565,14 @@ async function generateSolutionQ13() {
         `%%\\( \\frac{di}{dt} = \\frac{2 \\times i}{t} = \\frac{2 \\times ${truncate4(i_val)}}{${truncate4(t_val)}} = ${truncate4(didt)} \\text{ a/s} \\)%%<br><br>` +
         `%%\\( m_{23} = 0.8 \\sqrt{l_2 l_3} = 0.8 \\sqrt{${truncate4(l2)} \\times ${truncate4(l3)}} = ${(truncate4(m23))} \\text{ h} \\)%%<br>` +
         `%%\\( m_{31} = 0.8 \\sqrt{l_3 l_1} = 0.8 \\sqrt{${truncate4(l3)} \\times ${truncate4(l1)}} = ${(truncate4(m31))} \\text{ h} \\)%%<br><br>` +
-        `%%\\( e_3 = l_3 \\frac{di}{dt} + m_{23} \\frac{di}{dt} - m_{31} \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_3 = (l_3 + m_{23} - m_{31}) \\frac{di}{dt} \\)%%<br>` +
-        `%%\\( e_3 = (${truncate4(l3)} + ${truncate4(m23)} - ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
+        `%%\\( e_3 = l_3 \\frac{di}{dt} - m_{23} \\frac{di}{dt} + m_{31} \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_3 = (l_3 - m_{23} + m_{31}) \\frac{di}{dt} \\)%%<br>` +
+        `%%\\( e_3 = (${truncate4(l3)} - ${truncate4(m23)} + ${truncate4(m31)}) \\times ${truncate4(didt)} \\)%%<br>` +
         `%%\\( e_3 = ${(truncate4(e3))} \\text{ v} \\)%%`;
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q14 LOGIC =================
 let isSolutionVisibleQ14 = false;
 function toggleSolutionQ14() {
     const container = document.getElementById("solution-container-q14");
@@ -600,6 +611,7 @@ async function generateSolutionQ14() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q15 LOGIC =================
 let isSolutionVisibleQ15 = false;
 function toggleSolutionQ15() {
     const container = document.getElementById("solution-container-q15");
@@ -637,6 +649,7 @@ async function generateSolutionQ15() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q16 LOGIC =================
 let isSolutionVisibleQ16 = false;
 function toggleSolutionQ16() {
     const container = document.getElementById("solution-container-q16");
@@ -674,6 +687,7 @@ async function generateSolutionQ16() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q17 LOGIC =================
 let isSolutionVisibleQ17 = false;
 function toggleSolutionQ17() {
     const container = document.getElementById("solution-container-q17");
@@ -706,6 +720,7 @@ async function generateSolutionQ17() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q18 LOGIC =================
 let isSolutionVisibleQ18 = false;
 function toggleSolutionQ18() {
     const container = document.getElementById("solution-container-q18");
@@ -725,7 +740,7 @@ async function generateSolutionQ18() {
     btn.disabled = true; contentDiv.innerHTML = "";
     
     let m = e / x; 
-    let k = m / l;
+    let k = m / l; 
 
     quickAnswer.innerHTML = `answer: k = ${truncate4(k)}`; quickAnswer.style.display = "block"; separator.style.display = "flex"; solutionContainer.style.display = "flex"; spinner.style.display = "block"; cursor.style.display = "inline-block"; isSolutionVisibleQ18 = true;
 
@@ -738,6 +753,7 @@ async function generateSolutionQ18() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q19 LOGIC =================
 let isSolutionVisibleQ19 = false;
 function toggleSolutionQ19() {
     const container = document.getElementById("solution-container-q19");
@@ -769,6 +785,7 @@ async function generateSolutionQ19() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= Q20 LOGIC =================
 let isSolutionVisibleQ20 = false;
 function toggleSolutionQ20() {
     const container = document.getElementById("solution-container-q20");
@@ -801,6 +818,7 @@ async function generateSolutionQ20() {
     await typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn);
 }
 
+// ================= SHARED TYPEWRITER ENGINE =================
 async function typeoutSolution(solutionHTML, contentDiv, mathBuffer, spinner, cursor, btn) {
     let parts = solutionHTML.split('%%');
     let currentText = "";
